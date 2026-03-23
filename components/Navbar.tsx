@@ -1,7 +1,11 @@
+'use client';
+
 import Link from 'next/link';
 import { Search, ShoppingCart, Menu, User } from 'lucide-react';
+import { useCart } from '@/hooks/useCart';
 
 export default function Navbar() {
+  const { cartCount } = useCart();
   return (
     <header className="bg-nature-beige sticky top-0 z-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
@@ -39,12 +43,14 @@ export default function Navbar() {
             <button aria-label="User Profile" className="hover:text-nature-lightGreen transition-colors hidden md:block">
               <User className="w-[22px] h-[22px]" />
             </button>
-            <button aria-label="Shopping Cart" className="hover:text-nature-lightGreen transition-colors relative">
+            <Link href="/checkout" aria-label="Shopping Cart" className="hover:text-nature-lightGreen transition-colors relative">
               <ShoppingCart className="w-[22px] h-[22px]" />
-              <span className="absolute -top-2 -right-3 bg-nature-darkGreen text-white text-[10px] rounded-full h-[18px] w-[18px] flex items-center justify-center font-bold">
-                0
-              </span>
-            </button>
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-3 bg-nature-darkGreen text-white text-[10px] rounded-full h-[18px] w-[18px] flex items-center justify-center font-bold">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
             <button aria-label="Menu" className="md:hidden hover:text-nature-lightGreen transition-colors">
               <Menu className="w-6 h-6" />
             </button>

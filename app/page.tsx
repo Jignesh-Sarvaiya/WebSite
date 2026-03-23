@@ -1,20 +1,26 @@
+'use client';
+
 import ProductCard from '@/components/ProductCard';
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, Check } from 'lucide-react';
+import { useCart } from '@/hooks/useCart';
+import { useState } from 'react';
+import { Product } from '@/hooks/useProducts';
 
 export default function Home() {
+  const { addToCart } = useCart();
   const featuredProducts = [
-    { title: 'Moringa Leaf Powder', price: '₹ 99.00-900.00', image: '/placeholder.jpg' },
-    { title: 'Rose Dry Petals', price: '₹ 99.00-900.00', image: '/placeholder.jpg' },
-    { title: 'Multi Flora Honey', price: '₹ 185.00-330.00', image: '/placeholder.jpg', bestSeller: true },
-    { title: 'Panchagavya Soap', price: '₹ 150.00-430.00', image: '/placeholder.jpg' },
+    { id: '2', title: 'Moringa Leaf Powder', priceRange: '₹ 99.00-900.00', image: '/placeholder.jpg', category: 'Wellness', description: 'A daily dose of green vitality.', stockStatus: 'In Stock' as const },
+    { id: '3', title: 'Rose Dry Petals', priceRange: '₹ 99.00-900.00', image: '/placeholder.jpg', category: 'Flowers', description: 'Magic of natural roses.', stockStatus: 'In Stock' as const },
+    { id: '1', title: 'Multi Flora Honey', priceRange: '₹ 185.00-330.00', image: '/placeholder.jpg', bestSeller: true, category: 'Honey', description: 'Unadulterated sweetness.', stockStatus: 'In Stock' as const },
+    { id: '4', title: 'Panchagavya Soap', priceRange: '₹ 150.00-430.00', image: '/placeholder.jpg', category: 'Skincare', description: 'Cleanse and rejuvenate.', stockStatus: 'In Stock' as const },
   ];
 
   const trustedTales = [
-    { title: 'Rose Dry Petals', description: 'Experience the magic of natural roses in your daily care.', image: '/placeholder.jpg' },
-    { title: 'Multi Flora Honey', description: 'Pure, unadulterated sweetness direct from nature.', image: '/placeholder.jpg' },
-    { title: 'Panchagavya Soap', description: 'Cleanse and rejuvenate with ancient ayurvedic wisdom.', image: '/placeholder.jpg' },
-    { title: 'Natural Black Mahendi', description: 'Rich, natural color without the harsh chemicals.', image: '/placeholder.jpg' },
-    { title: 'Moringa Leaf Pow..', description: 'A daily dose of green vitality for your immune system.', image: '/placeholder.jpg' },
+    { id: '3', title: 'Rose Dry Petals', description: 'Experience the magic of natural roses in your daily care.', priceRange: '₹ 99.00 - 900.00', category: 'Flowers', stockStatus: 'In Stock' as const, image: '/placeholder.jpg' },
+    { id: '1', title: 'Multi Flora Honey', description: 'Pure, unadulterated sweetness direct from nature.', priceRange: '₹ 185.00 - 330.00', category: 'Honey', stockStatus: 'In Stock' as const, image: '/placeholder.jpg' },
+    { id: '4', title: 'Panchagavya Soap', description: 'Cleanse and rejuvenate with ancient ayurvedic wisdom.', priceRange: '₹ 150.00 - 430.00', category: 'Skincare', stockStatus: 'In Stock' as const, image: '/placeholder.jpg' },
+    { id: '101', title: 'Natural Black Mahendi', description: 'Rich, natural color without the harsh chemicals.', priceRange: '₹ 120.00 - 250.00', category: 'Haircare', stockStatus: 'In Stock' as const, image: '/placeholder.jpg' },
+    { id: '2', title: 'Moringa Leaf Powder', description: 'A daily dose of green vitality for your immune system.', priceRange: '₹ 99.00 - 900.00', category: 'Wellness', stockStatus: 'In Stock' as const, image: '/placeholder.jpg' },
   ];
 
   return (
@@ -192,10 +198,14 @@ export default function Home() {
                     {tale.description}
                   </p>
                   
-                  <div className="mt-auto pt-4 border-t border-gray-50">
-                    <button className="flex items-center text-[#113c31] hover:text-nature-green transition-all font-medium text-sm group">
+                  <div className="mt-auto pt-4 border-t border-gray-50 flex justify-between items-center">
+                    <span className="font-bold text-nature-darkGreen">{tale.priceRange}</span>
+                    <button 
+                      onClick={() => addToCart(tale as any)}
+                      className="flex items-center text-[#113c31] hover:text-nature-green transition-all font-bold text-xs group uppercase tracking-wider"
+                    >
                       <ShoppingCart className="w-4 h-4 mr-2" />
-                      Add To Cart
+                      Add
                     </button>
                   </div>
                 </div>

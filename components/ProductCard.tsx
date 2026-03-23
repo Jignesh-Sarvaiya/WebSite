@@ -1,14 +1,25 @@
-import { Star, ShoppingCart } from 'lucide-react';
-import Image from 'next/image';
+'use client';
+
+import { Star, ShoppingCart, Check } from 'lucide-react';
+import { useCart } from '@/hooks/useCart';
+import { Product } from '@/hooks/useProducts';
+import { useState } from 'react';
 
 interface ProductCardProps {
-  imageSrc: string;
-  title: string;
-  priceRange: string;
+  product: Product;
   isBestSeller?: boolean;
 }
 
-export default function ProductCard({ imageSrc, title, priceRange, isBestSeller }: ProductCardProps) {
+export default function ProductCard({ product, isBestSeller }: ProductCardProps) {
+  const { addToCart } = useCart();
+  const [added, setAdded] = useState(false);
+
+  const handleAddToCart = () => {
+    addToCart(product);
+    setAdded(true);
+    setTimeout(() => setAdded(false), 2000);
+  };
+
   return (
     <div className="group flex flex-col bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-nature-cream relative">
       {isBestSeller && (
@@ -19,7 +30,6 @@ export default function ProductCard({ imageSrc, title, priceRange, isBestSeller 
       
       <div className="relative w-full aspect-square overflow-hidden bg-nature-beige">
         <div className="w-full h-full flex items-center justify-center text-nature-brown opacity-20 group-hover:scale-105 transition-transform duration-500">
-          {/* Fallback image placeholder since we don't have real images yet */}
           <div className="w-full h-full bg-gradient-to-br from-nature-cream to-nature-lightGreen/20"></div>
         </div>
       </div>
@@ -32,19 +42,24 @@ export default function ProductCard({ imageSrc, title, priceRange, isBestSeller 
         </div>
         
         <h3 className="font-serif text-lg font-bold text-nature-darkGreen mb-1 line-clamp-2 pb-2">
-          {title}
+          {product.title}
         </h3>
         
         <div className="mt-auto pt-2 flex items-center justify-between">
           <span className="font-sans font-semibold text-nature-green">
-            {priceRange}
+            {product.priceRange}
           </span>
           
           <button 
+            onClick={handleAddToCart}
             aria-label="Add to cart"
-            className="bg-nature-cream text-nature-darkGreen p-2 rounded-full hover:bg-nature-darkGreen hover:text-white transition-colors group-hover:shadow-md"
+            className={`p-2 rounded-full transition-all group-hover:shadow-md ${
+              added 
+                ? 'bg-nature-darkGreen text-white' 
+                : 'bg-nature-cream text-nature-darkGreen hover:bg-nature-darkGreen hover:text-white'
+            }`}
           >
-            <ShoppingCart className="w-5 h-5" />
+            {added ? <Check className="w-5 h-5" /> : <ShoppingCart className="w-5 h-5" />}
           </button>
         </div>
       </div>

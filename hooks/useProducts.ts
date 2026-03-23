@@ -1,4 +1,6 @@
-import { useState, useCallback } from 'react';
+'use client';
+
+import { useState, useCallback, useEffect } from 'react';
 
 export interface Product {
   id: string;
@@ -10,6 +12,8 @@ export interface Product {
   image: string;
 }
 
+const LOCAL_STORAGE_KEY = 'gir_ayurveda_products';
+
 const mockProducts: Product[] = [
   { id: '1', title: 'Multi Flora Honey', description: 'Pure, unadulterated sweetness direct from nature.', priceRange: '₹ 185.00 - 330.00', category: 'Honey', stockStatus: 'In Stock', image: '/placeholder.jpg' },
   { id: '2', title: 'Moringa Leaf Powder', description: 'A daily dose of green vitality.', priceRange: '₹ 99.00 - 900.00', category: 'Powders', stockStatus: 'In Stock', image: '/placeholder.jpg' },
@@ -18,45 +22,63 @@ const mockProducts: Product[] = [
 ];
 
 export function useProducts() {
-  const [products, setProducts] = useState<Product[]>(mockProducts);
-  const [loading, setLoading] = useState(false);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // In a real app, this would be an async call to Firebase/Supabase
+  // Initialize from LocalStorage
+  useEffect(() => {
+    const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (saved) {
+      setProducts(JSON.parse(saved));
+    } else {
+      setProducts(mockProducts);
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(mockProducts));
+    }
+    setLoading(false);
+  }, []);
+
+  const saveProducts = (newProducts: Product[]) => {
+    setProducts(newProducts);
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(newProducts));
+  };
+
   const addProduct = useCallback(async (newProduct: Omit<Product, 'id'>) => {
     setLoading(true);
     try {
-      // Simulate network delay
       await new Promise(resolve => setTimeout(resolve, 500));
       const product: Product = {
         ...newProduct,
         id: Math.random().toString(36).substr(2, 9),
       };
-      setProducts(prev => [...prev, product]);
+      const updated = [...products, product];
+      saveProducts(updated);
       return product;
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [products]);
 
   const deleteProduct = useCallback(async (id: string) => {
     setLoading(true);
     try {
       await new Promise(resolve => setTimeout(resolve, 500));
-      setProducts(prev => prev.filter(p => p.id !== id));
+      const updated = products.filter(p => p.id !== id);
+      saveProducts(updated);
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [products]);
 
   const updateProduct = useCallback(async (id: string, updates: Partial<Product>) => {
     setLoading(true);
     try {
       await new Promise(resolve => setTimeout(resolve, 500));
-      setProducts(prev => prev.map(p => p.id === id ? { ...p, ...updates } : p));
+      const updated = products.map(p => p.id === id ? { ...p, ...updates } : p);
+      saveProducts(updated);
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [products]);
 
   return {
     products,
