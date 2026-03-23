@@ -10,11 +10,11 @@ export default function Navbar() {
           <div className="flex-shrink-0 flex items-center gap-2">
             <div className="w-12 h-12 bg-nature-green text-white rounded-full flex items-center justify-center font-serif flex-col leading-none border-2 border-nature-darkGreen">
               <span>G</span>
-              <span className="text-[0.5rem]">A O</span>
+              <span className="text-[0.5rem]">A</span>
             </div>
             <Link href="/" className="font-sans flex flex-col font-bold text-nature-darkGreen tracking-wide uppercase">
-              <span className="text-xl leading-none">GIR</span>
-              <span className="text-[0.65rem] tracking-widest text-nature-green mt-1">AYURVEDA ORGANICS</span>
+              <span className="text-xl leading-none">GIR AYURVEDA</span>
+              <span className="text-[0.65rem] tracking-widest text-nature-green mt-1">ORGANICS</span>
             </Link>
           </div>
 

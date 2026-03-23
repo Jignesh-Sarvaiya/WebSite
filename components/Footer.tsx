@@ -6,7 +6,10 @@ export default function Footer() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="font-serif text-2xl font-bold mb-4 text-white">GIR AYURVEDA ORGANICS</h3>
+            <h3 className="font-serif font-bold mb-4 text-white flex flex-col leading-none">
+              <span className="text-2xl">GIR AYURVEDA</span>
+              <span className="text-xs tracking-[0.3em] mt-1 text-nature-beige/60">ORGANICS</span>
+            </h3>
             <p className="text-sm text-nature-cream/80 max-w-sm">
               Discover 100% Pure, Organic & Chemical-Free Products for Your Mind, Body & Skin. Nature's Gift by Women's Hands.
             </p>
