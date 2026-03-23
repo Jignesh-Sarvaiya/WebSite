@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function CheckoutPage() {
-  const { cart, cartTotal, removeFromCart, addToCart, clearCart, isLoaded } = useCart();
+  const { cart, cartTotal, removeFromCart, addToCart, updateQuantity, clearCart, isLoaded } = useCart();
   const { updateOrderStatus } = useOrders(); // We use useOrders to 'create' a dummy order
   const [step, setStep] = useState(1);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -103,27 +103,29 @@ export default function CheckoutPage() {
               <div className="space-y-6">
                 {cart.map(item => (
                   <div key={item.id} className="flex items-center space-x-4 border-b border-gray-50 pb-6">
-                    <div className="w-20 h-20 bg-nature-beige rounded-xl flex items-center justify-center text-gray-300">
-                      <ShoppingBag className="w-8 h-8 opacity-20" />
-                    </div>
+                    <Link href={`/product/${item.id}`} className="w-20 h-20 bg-nature-beige rounded-xl flex items-center justify-center text-gray-300 hover:opacity-80 transition-opacity overflow-hidden">
+                      <div className="text-[8px] font-bold text-nature-darkGreen text-center p-2 leading-tight uppercase opacity-40">{item.title}</div>
+                    </Link>
                     <div className="flex-grow">
-                      <h4 className="font-bold text-gray-900 font-serif">{item.title}</h4>
-                      <p className="text-xs text-nature-green font-bold">{item.priceRange}</p>
+                      <Link href={`/product/${item.id}`}>
+                        <h4 className="font-bold text-gray-900 font-serif hover:text-nature-green transition-colors">{item.title}</h4>
+                      </Link>
+                      <p className="text-xs text-nature-green font-bold">₹ {(item.basePrice || 0).toLocaleString()}</p>
                     </div>
                     <div className="flex items-center space-x-3 bg-gray-50 px-3 py-1 rounded-full border border-gray-100">
-                       <button onClick={() => removeFromCart(item.id)} className="text-gray-400 hover:text-red-500"><Minus className="w-3.5 h-3.5" /></button>
-                       <span className="text-sm font-bold text-gray-700">{item.quantity}</span>
-                       <button onClick={() => addToCart(item)} className="text-gray-400 hover:text-nature-darkGreen"><Plus className="w-3.5 h-3.5" /></button>
+                       <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="text-gray-400 hover:text-red-500"><Minus className="w-3.5 h-3.5" /></button>
+                       <span className="text-sm font-bold text-gray-700 w-4 text-center">{item.quantity}</span>
+                       <button onClick={() => updateQuantity(item.id, item.quantity + 1)} className="text-gray-400 hover:text-nature-darkGreen"><Plus className="w-3.5 h-3.5" /></button>
                     </div>
                     <div className="text-right">
-                       <button onClick={() => removeFromCart(item.id)} className="text-gray-300 hover:text-red-500"><Trash2 className="w-4 h-4" /></button>
+                       <button onClick={() => removeFromCart(item.id)} className="text-gray-300 hover:text-red-500 p-2"><Trash2 className="w-4 h-4" /></button>
                     </div>
                   </div>
                 ))}
               </div>
               <button 
                 onClick={() => setStep(2)}
-                className="w-full mt-10 bg-nature-darkGreen text-white py-4 rounded-xl font-bold hover:bg-nature-green transition-all shadow-lg flex items-center justify-center"
+                className="w-full mt-10 bg-nature-darkGreen text-white py-4 rounded-xl font-bold hover:bg-nature-green transition-all shadow-lg flex items-center justify-center uppercase tracking-widest text-sm"
               >
                 Proceed to Shipping →
               </button>
@@ -190,7 +192,7 @@ export default function CheckoutPage() {
                   onClick={handlePlaceOrder}
                   className="w-full bg-[#dfb175] text-[#1b4332] py-4 rounded-xl font-bold hover:scale-[1.02] active:scale-[0.98] transition-all shadow-xl uppercase tracking-widest text-sm"
                  >
-                   Confirm Payment of ₹ {cartTotal}
+                   Confirm Payment of ₹ {cartTotal.toLocaleString()}
                  </button>
               </div>
             </div>
@@ -204,7 +206,7 @@ export default function CheckoutPage() {
             <div className="space-y-4">
               <div className="flex justify-between text-white/70 text-sm">
                 <span>Subtotal</span>
-                <span>₹ {cartTotal}</span>
+                <span>₹ {cartTotal.toLocaleString()}</span>
               </div>
               <div className="flex justify-between text-white/70 text-sm">
                 <span>Shipping</span>
@@ -216,7 +218,7 @@ export default function CheckoutPage() {
               </div>
               <div className="pt-4 border-t border-white/10 flex justify-between items-center text-lg font-bold">
                 <span className="font-serif">Total</span>
-                <span className="text-2xl text-nature-beige">₹ {cartTotal}</span>
+                <span className="text-2xl text-nature-beige">₹ {cartTotal.toLocaleString()}</span>
               </div>
             </div>
             

@@ -2,22 +2,10 @@
 
 import ProductCard from '@/components/ProductCard';
 import { Filter, ChevronDown } from 'lucide-react';
+import { useProducts } from '@/hooks/useProducts';
 
 export default function ProductsPage() {
-  const products = [
-    { id: '3', title: 'Rose Dry Petals', priceRange: '₹ 99.00 - 900.00', image: '/placeholder.jpg', category: 'Wellness', description: 'Freshly dried organic rose petals.', stockStatus: 'In Stock' as const },
-    { id: '1', title: 'Multi Flora Honey', priceRange: '₹ 185.00 - 330.00', image: '/placeholder.jpg', bestSeller: true, category: 'Food', description: 'Pure forest honey.', stockStatus: 'In Stock' as const },
-    { id: '4', title: 'Panchagavya Soap', priceRange: '₹ 150.00 - 430.00', image: '/placeholder.jpg', category: 'Skincare', description: 'Ayurvedic cleansing soap.', stockStatus: 'In Stock' as const },
-    { id: '101', title: 'Natural Black Mahendi', priceRange: '₹ 120.00 - 250.00', image: '/placeholder.jpg', category: 'Haircare', description: 'Chemical-free hair color.', stockStatus: 'In Stock' as const },
-    { id: '2', title: 'Moringa Leaf Powder', priceRange: '₹ 99.00 - 900.00', image: '/placeholder.jpg', category: 'Wellness', description: 'Nutrient-rich moringa.', stockStatus: 'In Stock' as const },
-    { id: '102', title: 'A2 Gir Cow Ghee', priceRange: '₹ 800.00 - 1500.00', image: '/placeholder.jpg', bestSeller: true, category: 'Food', description: 'Traditional bilona ghee.', stockStatus: 'In Stock' as const },
-    { id: '103', title: 'Neem Wood Comb', priceRange: '₹ 150.00', image: '/placeholder.jpg', category: 'Accessories', description: 'Handcrafted neem wood.', stockStatus: 'In Stock' as const },
-    { id: '104', title: 'Ashwagandha Powder', priceRange: '₹ 200.00 - 500.00', image: '/placeholder.jpg', category: 'Wellness', description: 'Pure vitality root.', stockStatus: 'In Stock' as const },
-    { id: '105', title: 'Organic Turmeric', priceRange: '₹ 80.00 - 250.00', image: '/placeholder.jpg', category: 'Food', description: 'High curcumin turmeric.', stockStatus: 'In Stock' as const },
-    { id: '106', title: 'Aloe Vera Gel', priceRange: '₹ 150.00 - 300.00', image: '/placeholder.jpg', category: 'Skincare', description: 'Pure smoothing gel.', stockStatus: 'In Stock' as const },
-    { id: '107', title: 'Herbal Hair Oil', priceRange: '₹ 250.00 - 600.00', image: '/placeholder.jpg', category: 'Haircare', description: 'Nourishing botanical oil.', stockStatus: 'In Stock' as const },
-    { id: '108', title: 'Cold Pressed Coconut Oil', priceRange: '₹ 300.00 - 800.00', image: '/placeholder.jpg', bestSeller: true, category: 'Food', description: 'Pure virgin oil.', stockStatus: 'In Stock' as const },
-  ];
+  const { products } = useProducts();
 
   return (
     <div className="flex flex-col min-h-screen bg-nature-beige pb-20">

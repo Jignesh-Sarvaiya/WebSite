@@ -1,3 +1,5 @@
+'use client';
+
 import { TrendingUp, Package, ShoppingCart, AlertCircle } from 'lucide-react';
 
 export default function AdminDashboard() {
@@ -17,9 +19,22 @@ export default function AdminDashboard() {
 
   return (
     <div className="space-y-8 max-w-7xl mx-auto">
-      <div>
-        <h2 className="text-3xl font-serif font-bold text-gray-800 mb-2">Dashboard Overview</h2>
-        <p className="text-gray-500">Welcome back to the Gir Ayurveda Organics admin panel.</p>
+      <div className="flex justify-between items-end">
+        <div>
+          <h2 className="text-3xl font-serif font-bold text-gray-800 mb-2">Dashboard Overview</h2>
+          <p className="text-gray-500">Welcome back to the Gir Ayurveda Organics admin panel.</p>
+        </div>
+        <button 
+          onClick={() => {
+            if(confirm('Are you sure you want to reset all data to defaults? This cannot be undone.')) {
+              localStorage.clear();
+              window.location.reload();
+            }
+          }}
+          className="bg-red-50 text-red-600 px-4 py-2 rounded-lg text-sm font-bold hover:bg-red-100 transition-colors border border-red-100"
+        >
+          Reset All Data
+        </button>
       </div>
 
       {/* Stats Cards */}

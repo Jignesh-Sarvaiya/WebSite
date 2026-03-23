@@ -42,6 +42,16 @@ export function useCart() {
     });
   }, []);
 
+  const updateQuantity = useCallback((productId: string, quantity: number) => {
+    setCart(prev => {
+      const updated = prev.map(item => 
+        item.id === productId ? { ...item, quantity: Math.max(0, quantity) } : item
+      ).filter(item => item.quantity > 0);
+      localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updated));
+      return updated;
+    });
+  }, []);
+
   const removeFromCart = useCallback((productId: string) => {
     setCart(prev => {
       const updated = prev.filter(item => item.id !== productId);
@@ -57,15 +67,14 @@ export function useCart() {
 
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
   const cartTotal = cart.reduce((total, item) => {
-    // Basic price extraction for mock data (e.g. "₹ 185.00" -> 185)
-    const price = parseInt(item.priceRange.replace(/[^\d]/g, '')) || 0;
-    return total + (price * item.quantity);
+    return total + (Number(item.basePrice) * Number(item.quantity));
   }, 0);
 
   return {
     cart,
     isLoaded,
     addToCart,
+    updateQuantity,
     removeFromCart,
     clearCart,
     cartCount,

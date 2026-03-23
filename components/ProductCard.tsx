@@ -29,9 +29,11 @@ export default function ProductCard({ product, isBestSeller }: ProductCardProps)
       )}
       
       <div className="relative w-full aspect-square overflow-hidden bg-nature-beige">
-        <div className="w-full h-full flex items-center justify-center text-nature-brown opacity-20 group-hover:scale-105 transition-transform duration-500">
-          <div className="w-full h-full bg-gradient-to-br from-nature-cream to-nature-lightGreen/20"></div>
-        </div>
+        <img 
+          src={product.image} 
+          alt={product.title} 
+          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+        />
       </div>
       
       <div className="p-5 flex flex-col flex-grow">
@@ -46,14 +48,14 @@ export default function ProductCard({ product, isBestSeller }: ProductCardProps)
         </h3>
         
         <div className="mt-auto pt-2 flex items-center justify-between">
-          <span className="font-sans font-semibold text-nature-green">
-            {product.priceRange}
+          <span className="font-sans font-bold text-nature-green text-xl">
+            ₹ {product.basePrice}
           </span>
           
           <button 
             onClick={handleAddToCart}
             aria-label="Add to cart"
-            className={`p-2 rounded-full transition-all group-hover:shadow-md ${
+            className={`p-2.5 rounded-full transition-all group-hover:shadow-lg ${
               added 
                 ? 'bg-nature-darkGreen text-white' 
                 : 'bg-nature-cream text-nature-darkGreen hover:bg-nature-darkGreen hover:text-white'
