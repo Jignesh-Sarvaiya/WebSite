@@ -2,7 +2,7 @@
 
 import { useCart } from '@/hooks/useCart';
 import { useOrders } from '@/hooks/useOrders';
-import { ShoppingBag, CreditCard, Truck, ShieldCheck, Trash2, Plus, Minus, ArrowLeft } from 'lucide-react';
+import { ShoppingBag, CreditCard, Truck, ShieldCheck, Plus, Minus, ArrowLeft, Trash2 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 

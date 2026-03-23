@@ -1,6 +1,6 @@
 'use client';
 
-import { ShoppingCart, Check, ShieldCheck, Zap, Smile, Activity, ExternalLink, Leaf, Star, Heart } from 'lucide-react';
+import { ShoppingCart, ShieldCheck, Zap, Smile, Activity, ExternalLink, Heart } from 'lucide-react';
 import { useProducts, Product } from '@/hooks/useProducts';
 import { useCart } from '@/hooks/useCart';
 import Link from 'next/link';

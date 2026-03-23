@@ -1,10 +1,9 @@
 'use client';
 
-import { useParams, useRouter } from 'next/navigation';
-import { useProducts, Product } from '@/hooks/useProducts';
+import { useRouter } from 'next/navigation';
+import { useProducts } from '@/hooks/useProducts';
 import { useCart } from '@/hooks/useCart';
-import { Star, ShoppingCart, ChevronLeft, ShieldCheck, Leaf, Heart, ArrowRight, Zap, Activity, ExternalLink } from 'lucide-react';
-import Image from 'next/image';
+import { Star, ShoppingCart, ChevronLeft, ShieldCheck, Leaf, Heart } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 

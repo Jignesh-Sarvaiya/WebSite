@@ -3,9 +3,9 @@
 import Link from 'next/link';
 import { Search, ShoppingCart, Menu, User, X, ArrowRight } from 'lucide-react';
 import { useCart } from '@/hooks/useCart';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useProducts, Product } from '@/hooks/useProducts';
+import { useProducts } from '@/hooks/useProducts';
 
 export default function Navbar() {
   const { cartCount } = useCart();
