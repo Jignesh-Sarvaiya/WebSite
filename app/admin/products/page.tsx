@@ -12,19 +12,21 @@ export default function ProductsPage() {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
+    basePrice: 0,
     priceRange: '',
     category: '',
     stockStatus: 'In Stock' as const,
+    goals: [] as string[],
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await addProduct({
       ...formData,
-      image: '/placeholder.jpg' // Mock image for now
+      image: '/WebSite/placeholder.jpg' // Updated for GitHub Pages
     });
     setIsFormOpen(false);
-    setFormData({ title: '', description: '', priceRange: '', category: '', stockStatus: 'In Stock' });
+    setFormData({ title: '', description: '', basePrice: 0, priceRange: '', category: '', stockStatus: 'In Stock', goals: [] });
   };
 
   return (
@@ -151,32 +153,43 @@ export default function ProductsPage() {
                 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Price Range</label>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Base Price (₹)</label>
+                    <input 
+                      type="number" 
+                      required 
+                      value={formData.basePrice}
+                      onChange={e => setFormData({...formData, basePrice: Number(e.target.value)})}
+                      className="w-full p-2.5 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-nature-green focus:border-nature-green outline-none text-sm transition-shadow" 
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-1">Display Price (e.g. ₹ 99)</label>
                     <input 
                       type="text" 
                       required 
                       value={formData.priceRange}
                       onChange={e => setFormData({...formData, priceRange: e.target.value})}
                       className="w-full p-2.5 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-nature-green focus:border-nature-green outline-none text-sm transition-shadow" 
-                      placeholder="e.g., ₹ 500 - 800"
+                      placeholder="e.g., ₹ 99"
                     />
                   </div>
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
-                    <select 
-                      required 
-                      value={formData.category}
-                      onChange={e => setFormData({...formData, category: e.target.value})}
-                      className="w-full p-2.5 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-nature-green focus:border-nature-green outline-none text-sm transition-shadow"
-                    >
-                      <option value="">Select...</option>
-                      <option value="Honey">Honey</option>
-                      <option value="Powders">Powders</option>
-                      <option value="Skincare">Skincare</option>
-                      <option value="Flowers">Flowers</option>
-                      <option value="Ghee">Ghee</option>
-                    </select>
-                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                  <select 
+                    required 
+                    value={formData.category}
+                    onChange={e => setFormData({...formData, category: e.target.value})}
+                    className="w-full p-2.5 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-nature-green focus:border-nature-green outline-none text-sm transition-shadow"
+                  >
+                    <option value="">Select...</option>
+                    <option value="Honey">Honey</option>
+                    <option value="Powders">Powders</option>
+                    <option value="Skincare">Skincare</option>
+                    <option value="Flowers">Flowers</option>
+                    <option value="Ghee">Ghee</option>
+                  </select>
                 </div>
 
                 <div>
