@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-nature-beige text-nature-darkGreen font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-nature-darkGreen;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-nature-darkGreen text-white px-6 py-3 rounded-md font-medium hover:bg-nature-green transition-colors duration-300;
+  }
+  .btn-secondary {
+    @apply bg-transparent border-2 border-nature-darkGreen text-nature-darkGreen px-6 py-3 rounded-md font-medium hover:bg-nature-darkGreen hover:text-white transition-colors duration-300;
+  }
+}
