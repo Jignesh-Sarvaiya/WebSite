@@ -55,7 +55,7 @@ const mockProducts: Product[] = [
     title: 'Rose Dry Petals', 
     basePrice: 150, 
     priceRange: '₹ 150', 
-    image: '/images/rose.png', 
+    image: '/WebSite/images/rose.png', 
     category: 'Flowers', 
     description: 'Fragrant and sun-dried organic rose petals for culinary and wellness use.', 
     stockStatus: 'In Stock',

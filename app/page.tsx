@@ -23,7 +23,7 @@ export default function Home() {
             {/* Visual element representing the smiling Indian woman */}
             <div className="absolute bottom-0 left-0 w-full h-[90%] bg-[#e3d5c5] rounded-t-full border-4 border-white/50 shadow-lg flex flex-col items-center justify-end overflow-hidden z-20">
                <img 
-                 src="/images/woman_hero.png" 
+                 src="/WebSite/images/woman_hero.png" 
                  alt="Smiling Ayurvedic Woman" 
                  className="w-full h-full object-cover"
                />
@@ -92,12 +92,12 @@ export default function Home() {
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-8">
             {[
-              { name: 'Immunity', icon: ShieldCheck },
-              { name: 'Digestive Health', icon: Zap },
-              { name: 'Stress Relief', icon: Smile },
-              { name: 'Skin Health', icon: Heart },
-              { name: 'Energy', icon: Activity },
-              { name: 'Detox', icon: ExternalLink }
+              { name: 'Immunity', icon: ShieldCheck, image: '/WebSite/images/honey.png' },
+              { name: 'Digestive Health', icon: Zap, image: '/WebSite/images/moringa.png' },
+              { name: 'Stress Relief', icon: Smile, image: '/WebSite/images/rose.png' },
+              { name: 'Skin Health', icon: Heart, image: '/WebSite/images/soap.png' },
+              { name: 'Energy', icon: Activity, image: '/WebSite/images/ghee.png' },
+              { name: 'Detox', icon: ExternalLink, image: '/WebSite/images/moringa.png' }
             ].map((goal, i) => (
               <div key={i} className="group cursor-pointer flex flex-col items-center">
                 <div className="w-24 h-24 bg-nature-beige rounded-[32px] flex items-center justify-center text-nature-darkGreen group-hover:bg-nature-green group-hover:text-white transition-all duration-300 shadow-sm border border-nature-cream group-hover:border-nature-green mb-4">
