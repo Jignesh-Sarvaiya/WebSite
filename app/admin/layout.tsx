@@ -20,7 +20,7 @@ export default function AdminLayout({
       <aside className="w-full md:w-64 bg-nature-darkGreen text-white flex flex-col md:h-screen sticky top-0 md:sticky z-40 shadow-xl">
         <div className="p-6 border-b border-white/10 flex items-center justify-between md:justify-center">
           <Link href="/" className="font-serif text-xl font-bold tracking-wider text-nature-beige">
-            Nisarg Admin
+            Gir Ayurveda Admin
           </Link>
           <Link href="/" className="md:hidden text-xs bg-white/20 px-3 py-1 rounded hover:bg-white/30 transition-colors">
             View Store
