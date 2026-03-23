@@ -29,7 +29,7 @@ export default function BlogPage() {
       category: 'Sustainability',
       date: 'August 30, 2026',
       readTime: '3 min read',
-      excerpt: 'Step into the Nisarg farms and see our ethical, bee-friendly honey harvesting process that ensures purity and sustainability.',
+      excerpt: 'Step into the Gir Ayurveda farms and see our ethical, bee-friendly honey harvesting process that ensures purity and sustainability.',
     }
   ];
 
@@ -38,7 +38,7 @@ export default function BlogPage() {
       
       {/* Blog Hero text */}
       <div className="bg-[#0a4d3c] text-white py-20 px-4 text-center">
-        <h1 className="text-4xl md:text-5xl font-serif text-nature-beige mb-4">The Nisarg Journal</h1>
+        <h1 className="text-4xl md:text-5xl font-serif text-nature-beige mb-4">The Gir Ayurveda Journal</h1>
         <p className="text-white/80 max-w-2xl mx-auto text-lg leading-relaxed">
           Stories, remedies, and ancient wisdom to help you live a healthier, chemical-free life in harmony with nature.
         </p>

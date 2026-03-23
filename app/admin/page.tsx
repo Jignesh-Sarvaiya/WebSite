@@ -19,7 +19,7 @@ export default function AdminDashboard() {
     <div className="space-y-8 max-w-7xl mx-auto">
       <div>
         <h2 className="text-3xl font-serif font-bold text-gray-800 mb-2">Dashboard Overview</h2>
-        <p className="text-gray-500">Welcome back to the Nisarg Organic Farm admin panel.</p>
+        <p className="text-gray-500">Welcome back to the Gir Ayurveda Organics admin panel.</p>
       </div>
 
       {/* Stats Cards */}
@@ -67,10 +67,10 @@ export default function AdminDashboard() {
                     <td className="px-6 py-4 text-sm text-gray-600">{order.customer}</td>
                     <td className="px-6 py-4 text-sm text-gray-600">{order.date}</td>
                     <td className="px-6 py-4 text-sm">
-                      <span className={\`px-3 py-1 rounded-full text-xs font-medium 
-                        \${order.status === 'Delivered' ? 'bg-green-100 text-green-700' : 
+                      <span className={`px-3 py-1 rounded-full text-xs font-medium 
+                        ${order.status === 'Delivered' ? 'bg-green-100 text-green-700' : 
                            order.status === 'Processing' ? 'bg-yellow-100 text-yellow-700' : 
-                           'bg-blue-100 text-blue-700'}\`}>
+                           'bg-blue-100 text-blue-700'}`}>
                         {order.status}
                       </span>
                     </td>

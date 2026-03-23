@@ -121,10 +121,10 @@ export default function Home() {
             {/* Text Content */}
             <div className="w-full lg:w-[45%] text-left">
               <h2 className="text-4xl md:text-[42px] font-sans font-medium text-[#113c31] mb-8 leading-tight">
-                Why Choose Nisarg Organic Farm?
+                Why Choose Gir Ayurveda Organics?
               </h2>
               <p className="text-[#3b4b45] leading-[1.8] mb-10 text-[17px]">
-                At Nisarg, we don't just grow food - we grow trust.<br/>
+                At Gir Ayurveda, we don't just grow food - we grow trust.<br/>
                 Our farm products are rooted in purity,<br/>
                 grown without chemicals, and processed with love.<br/>
                 From A2 Gir cow ghee to herbal skincare essentials,<br/>
@@ -144,7 +144,7 @@ export default function Home() {
                    {/* Product */}
                    <div className="w-[60%] h-[75%] bg-gradient-to-b from-yellow-300 to-amber-500 rounded-t-3xl rounded-b-xl border-t-[20px] border-amber-600 border-x-8 border-yellow-400 shadow-[inset_0_-10px_30px_rgba(0,0,0,0.3)] flex items-center justify-center relative z-20">
                      <div className="bg-white w-[85%] h-[55%] rounded shadow p-4 text-center border border-gray-200">
-                        <span className="text-[#113c31] font-bold text-xs">NISARG</span><br/>
+                        <span className="text-[#113c31] font-bold text-xs">GIR</span><br/>
                         <span className="text-xl font-serif text-blue-900 leading-none">MULTI FLORA</span><br/>
                         <span className="text-4xl font-serif text-amber-500 font-bold leading-none tracking-widest">HONEY</span>
                      </div>
@@ -173,7 +173,7 @@ export default function Home() {
               Trusted Tales
             </h2>
             <p className="text-[#3b4b45] text-[15px]">
-              Discover the goodness of nature, tell your story. Join the #Nisarg Family-tag us to be featured.
+              Discover the goodness of nature, tell your story. Join the #GirAyurveda Family-tag us to be featured.
             </p>
           </div>
 

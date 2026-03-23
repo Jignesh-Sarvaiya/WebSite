@@ -33,7 +33,7 @@ export default function ContactUsPage() {
                   <Mail className="w-6 h-6 mr-6 text-[#dfb175]" />
                   <div>
                     <h4 className="font-bold mb-1">Email</h4>
-                    <p className="text-white/80 text-sm font-sans">hello@nisargorganicfarm.com</p>
+                    <p className="text-white/80 text-sm font-sans">hello@girayurvedaorganics.com</p>
                   </div>
                 </div>
                 
@@ -42,7 +42,7 @@ export default function ContactUsPage() {
                   <div>
                     <h4 className="font-bold mb-1">Farm Location</h4>
                     <p className="text-white/80 text-sm font-sans leading-relaxed">
-                      Nisarg Organic Farm HQ,<br/>
+                      Gir Ayurveda Organics HQ,<br/>
                       Village Green Fields,<br/>
                       Gujarat, India 380001
                     </p>

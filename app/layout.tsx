@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-playfair' });
 
 export const metadata: Metadata = {
-  title: 'Nisarg Organic Farm | Where the Earth Meets Wellness',
+  title: 'Gir Ayurveda Organics | Where the Earth Meets Wellness',
   description: 'Discover 100% Pure, Organic & Chemical-Free Products for Your Mind, Body & Skin. Nature\'s Gift by Women\'s Hands.',
 };
 

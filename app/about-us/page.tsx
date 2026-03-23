@@ -12,7 +12,7 @@ export default function AboutUsPage() {
             Rooted in Purity <br className="hidden md:block"/> Grown with Love
           </h1>
           <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto font-sans leading-relaxed">
-            Nisarg Organic Farm was born from a simple belief: the earth provides everything we need to heal, nourish, and thrive.
+            Gir Ayurveda Organics was born from a simple belief: the earth provides everything we need to heal, nourish, and thrive.
           </p>
         </div>
       </section>
@@ -24,7 +24,7 @@ export default function AboutUsPage() {
              {/* Abstract Farm Image Composition */}
              <div className="absolute inset-0 bg-[#e3d5c5] rounded-tl-[100px] rounded-br-[100px] shadow-lg border-2 border-white flex flex-col items-center justify-center p-8 overflow-hidden">
                <div className="w-full h-full bg-[#0a5c43]/10 absolute inset-0"></div>
-               <span className="font-serif italic text-3xl text-[#1b4332]/40 z-10 text-center">Nisarg Farm Fields</span>
+               <span className="font-serif italic text-3xl text-[#1b4332]/40 z-10 text-center">Gir Ayurveda Farm Fields</span>
                <div className="w-48 h-48 rounded-full border border-nature-brown/20 absolute -top-10 -right-10 z-0"></div>
                <div className="w-64 h-64 rounded-full border border-nature-brown/20 absolute -bottom-20 -left-20 z-0"></div>
              </div>

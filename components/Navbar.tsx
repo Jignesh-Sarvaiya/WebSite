@@ -9,12 +9,12 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center gap-2">
             <div className="w-12 h-12 bg-nature-green text-white rounded-full flex items-center justify-center font-serif flex-col leading-none border-2 border-nature-darkGreen">
-              <span>N</span>
-              <span className="text-[0.5rem]">O F</span>
+              <span>G</span>
+              <span className="text-[0.5rem]">A O</span>
             </div>
             <Link href="/" className="font-sans flex flex-col font-bold text-nature-darkGreen tracking-wide uppercase">
-              <span className="text-xl leading-none">NISARG</span>
-              <span className="text-[0.65rem] tracking-widest text-nature-green mt-1">ORGANIC FARM</span>
+              <span className="text-xl leading-none">GIR</span>
+              <span className="text-[0.65rem] tracking-widest text-nature-green mt-1">AYURVEDA ORGANICS</span>
             </Link>
           </div>
 
